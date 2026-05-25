@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Toaster Studios / Crazy things in Minecraft that unbrain your brain.</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+
+<script>
+  // TWEAKS persisted between sessions
+  window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "palette": "ember",
+    "glow": 0,
+    "headline": "Crazy things in Minecraft that unbrain your brain.",
+    "showCrumbs": false
+  }/*EDITMODE-END*/;
+</script>
+
+<style>
+  /* ---------- TOKENS ---------- */
+  :root {
+    --bg: #F1E3CB;
+    --bg-2: #E8D5B3;
+    --ink: #1A130C;
+    --ink-2: #3B2E1F;
+    --mute: #8A7A60;
+    --line: rgba(26, 19, 12, 0.16);
+    --line-strong: rgba(26, 19, 12, 0.55);
+    --glow: #FFB23B;
+    --glow-2: #FFE08A;
+    --paper: #FAF2DF;
+    --glow-strength: 1;
+  }
+  [data-palette="ember"] {
+    --bg: #18120C;
+    --bg-2: #221912;
+    --ink: #F5E7CB;
+    --ink-2: #D9C8A7;
+    --mute: #8E7B5C;
+    --line: rgba(245, 231, 203, 0.18);
+    --line-strong: rgba(245, 231, 203, 0.55);
+    --paper: #221912;
+    --glow: #FFB23B;
+    --glow-2: #FFE08A;
+  }
+  [data-palette="milk"] {
+    --bg: #F4EFE7;
+    --bg-2: #E8E1D3;
+    --ink: #1F1B16;
+    --ink-2: #3D362C;
+    --mute: #8A8275;
+    --line: rgba(31, 27, 22, 0.14);
+    --line-strong: rgba(31, 27, 22, 0.5);
+    --paper: #FBF8F1;
+    --glow: #6A8F6E;
+    --glow-2: #B9D9BC;
+  }
+  [data-palette="cherry"] {
+    --bg: #F2DDD2;
+    --bg-2: #ECCBB9;
+    --ink: #2A0E08;
+    --ink-2: #4A1B12;
+    --mute: #9A6655;
+    --line: rgba(42, 14, 8, 0.16);
+    --line-strong: rgba(42, 14, 8, 0.55);
+    --paper: #FAEDE3;
+    --glow: #E84A2B;
+    --glow-2: #FFB088;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  ::selection { background: var(--glow); color: var(--ink); }
+
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .serif { font-family: 'Instrument Serif', 'Newsreader', Georgia, serif; font-weight: 400; }
+  .italic { font-style: italic; }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 720px) { .wrap { padding: 0 22px; } }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklab, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .brand .pip {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--glow-2), var(--glow) 55%, #C0741F 100%);
+    box-shadow: 0 0 calc(10px * var(--glow-strength)) var(--glow);
+    flex: none;
+  }
+  .brand .wordmark { font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: 0.01em; }
+  .brand .wordmark em { font-style: italic; color: var(--ink-2); }
+
+  nav.top ul {
+    list-style: none; display: flex; gap: 28px; margin: 0; padding: 0;
+  }
+  nav.top a.navlink {
+    color: var(--ink); text-decoration: none;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 0; border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  nav.top a.navlink:hover { border-color: var(--ink); }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .status .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--glow); box-shadow: 0 0 8px var(--glow);
+    animation: blink 2.2s infinite;
+  }
+  @keyframes blink { 0%,60%,100%{opacity:1} 30%{opacity:0.35} }
+
+  @media (max-width: 880px) {
+    nav.top ul { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 60px 0 80px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap { position: relative; }
+  .hero-meta {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: 24px; padding-bottom: 28px;
+    border-bottom: 1px dashed var(--line);
+    align-items: end;
+  }
+  .hero-meta .right { text-align: right; color: var(--mute); }
+  .hero-meta .center { color: var(--mute); }
+
+  .display {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 168px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin: 36px 0 0;
+    text-wrap: balance;
+  }
+  .display em { font-style: italic; color: var(--ink-2); }
+  .display .gold {
+    background: linear-gradient(180deg, var(--glow-2) 0%, var(--glow) 60%, #C26A11 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* slot machine for cycling adjective */
+  .display .slot {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    height: 0.92em;
+    line-height: 0.92;
+    transition: width 0.55s cubic-bezier(.7, 0, .2, 1);
+    position: relative;
+    /* faint amber underline so the swap is grokkable when paused */
+    box-shadow: inset 0 -0.02em 0 color-mix(in oklab, var(--glow) 28%, transparent);
+  }
+  .display .slot-track {
+    display: block;
+    transition: transform 0.7s cubic-bezier(.7, -0.05, .15, 1.05);
+    will-change: transform;
+  }
+  .display .slot-word {
+    display: block;
+    width: max-content;
+    height: 0.92em;
+    line-height: 0.92;
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  .hero-row {
+    display: grid; grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px; align-items: end;
+    margin-top: 56px;
+  }
+  @media (max-width: 900px) { .hero-row { grid-template-columns: 1fr; } }
+
+  .lede {
+    font-family: 'Newsreader', serif;
+    font-size: 19px; line-height: 1.55;
+    max-width: 46ch; color: var(--ink-2);
+  }
+  .lede em { font-style: italic; }
+
+  .cta-row { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+
+  .compat {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin-top: 22px;
+    color: var(--mute);
+  }
+  .compat > span {
+    padding: 6px 10px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1;
+  }
+  .compat .dot-sep {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--mute);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    text-decoration: none; cursor: pointer;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: transform 0.15s ease, background 0.2s, color 0.2s;
+    border: 1px solid var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: var(--bg); }
+  .btn.primary:hover { background: var(--glow); color: var(--ink); border-color: var(--glow); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn .arrow { transition: transform 0.2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- TOASTER (the cat) ---------- */
+  .toaster-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    user-select: none;
+  }
+  .toaster-stage .photo {
+    width: 100%; height: 100%; object-fit: contain;
+    object-position: center bottom;
+    filter: contrast(1.02) saturate(0.95);
+  }
+  .toaster-stage .eyeglow {
+    position: absolute; pointer-events: none;
+    width: 32%; height: 32%;
+    left: 22%; top: 30%;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--glow) 70%, transparent), transparent 70%);
+    filter: blur(6px);
+    opacity: calc(0.55 * var(--glow-strength));
+    mix-blend-mode: screen;
+    transition: transform 0.18s ease-out;
+  }
+  .toaster-stage .nameplate {
+    position: absolute; left: 0; bottom: -12px;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg);
+    padding: 0 10px;
+    color: var(--mute);
+  }
+  .toaster-stage .nameplate .tick {
+    width: 22px; height: 1px; background: var(--line-strong);
+  }
+  .floaty-tag {
+    position: absolute; right: 4%; top: 8%;
+    display: flex; flex-direction: column; align-items: flex-end;
+    gap: 4px;
+    transform: rotate(2deg);
+  }
+  .floaty-tag .bubble {
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+    padding: 8px 12px;
+    border-radius: 14px 14px 14px 2px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--ink);
+    box-shadow: 2px 4px 0 var(--line);
+  }
+  .floaty-tag .who {
+    color: var(--mute); margin-right: 8px;
+  }
+
+  /* crumbs */
+  .crumbs {
+    position: absolute; inset: 0; pointer-events: none;
+    overflow: hidden;
+  }
+  .crumb {
+    position: absolute;
+    width: 6px; height: 4px; border-radius: 50%;
+    background: #B98345;
+    opacity: 0.55;
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+  .marquee-track {
+    display: flex; gap: 56px;
+    animation: scroll 38s linear infinite;
+    width: max-content;
+  }
+  .marquee-track span {
+    font-family: 'Instrument Serif', serif;
+    font-size: 42px; line-height: 1; white-space: nowrap;
+    color: var(--ink);
+  }
+  .marquee-track span em { font-style: italic; color: var(--ink-2); }
+  .marquee-track .star {
+    display: inline-block; width: 18px; height: 18px;
+    background: radial-gradient(circle at 35% 35%, var(--glow-2), var(--glow) 60%, #A55D11);
+    border-radius: 50%;
+    align-self: center;
+    box-shadow: 0 0 calc(12px * var(--glow-strength)) var(--glow);
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 120px 0; border-bottom: 1px solid var(--line); position: relative; }
+  .sec-head {
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: 40px; margin-bottom: 56px;
+  }
+  @media (max-width: 720px) { .sec-head { grid-template-columns: 1fr; gap: 12px; } }
+  .sec-head .index { color: var(--mute); }
+  .sec-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+  .sec-title em { font-style: italic; color: var(--ink-2); }
+
+  /* ---------- WORK ---------- */
+  .work-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 56px 40px;
+  }
+  @media (max-width: 880px) { .work-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .work {
+    cursor: pointer; display: block; text-decoration: none; color: inherit;
+  }
+  .work .frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(.2,.7,.2,1);
+  }
+  .work:hover .frame { transform: translateY(-4px); }
+  .work .placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--mute);
+    background:
+      repeating-linear-gradient(45deg,
+        transparent 0 22px,
+        color-mix(in oklab, var(--ink) 5%, transparent) 22px 23px);
+  }
+  .work .placeholder .tag {
+    background: var(--bg);
+    padding: 8px 14px;
+    border: 1px solid var(--line-strong);
+  }
+  .work .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 16px; gap: 24px;
+  }
+  .work h3 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400; font-size: 28px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .work h3 em { font-style: italic; color: var(--ink-2); }
+  .work h3 .sub {
+    font-style: italic; color: var(--ink-2);
+    display: block;
+    font-size: 22px;
+    margin-top: 2px;
+  }
+  .work .tags { color: var(--mute); }
+  .work.featured { grid-column: 1 / -1; }
+  .work.featured .frame { aspect-ratio: 21 / 9; }
+
+  /* photo frame contents */
+  .frame-art {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .frame-art.studio { background: linear-gradient(160deg, #2A1D11, #4A331C); color: #F4E0BA; }
+  .frame-art.studio .arc {
+    position: absolute; width: 70%; height: 70%; border-radius: 50%;
+    background: radial-gradient(circle at 50% 60%, var(--glow-2), var(--glow) 35%, transparent 70%);
+    filter: blur(4px); opacity: 0.85;
+  }
+  .frame-art.studio .label {
+    position: relative; font-family: 'Instrument Serif', serif; font-size: 64px; font-style: italic;
+  }
+  .frame-art.print { background: var(--paper); }
+  .frame-art.print .stack {
+    width: 70%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .frame-art.print .stack > div {
+    aspect-ratio: 3/4; background: var(--ink); transform: rotate(var(--r));
+  }
+  .frame-art.print .stack > div:nth-child(2) { background: var(--glow); }
+  .frame-art.print .stack > div:nth-child(3) { background: var(--bg-2); }
+  .frame-art.print .stack > div:nth-child(4) { background: var(--ink-2); }
+  .frame-art.identity {
+    background: #F1E3CB;
+    background:
+      radial-gradient(circle at 30% 40%, #FFB23B 0 60px, transparent 61px),
+      radial-gradient(circle at 70% 40%, #FFB23B 0 60px, transparent 61px),
+      var(--bg-2);
+  }
+  .frame-art.identity .smile {
+    width: 220px; height: 110px; border: 6px solid var(--ink);
+    border-top: none; border-radius: 0 0 220px 220px;
+    margin-top: 80px;
+  }
+  .frame-art.digital {
+    background: var(--ink);
+    color: var(--bg);
+    display: grid; place-items: center;
+  }
+  .frame-art.digital .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-strong) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.18;
+  }
+  .frame-art.digital .blob {
+    position: relative; width: 60%; aspect-ratio: 1;
+    background: radial-gradient(circle at 35% 35%, var(--glow-2), var(--glow) 50%, #6A2D00 100%);
+    border-radius: 49% 51% 60% 40% / 45% 55% 45% 55%;
+    filter: blur(0.5px);
+    animation: morph 9s ease-in-out infinite;
+  }
+  @keyframes morph {
+    0%, 100% { border-radius: 49% 51% 60% 40% / 45% 55% 45% 55%; }
+    50% { border-radius: 60% 40% 45% 55% / 55% 45% 60% 40%; }
+  }
+
+  /* badges shared by all frame-art tiles */
+  .frame-art .badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--ink); color: var(--bg);
+    padding: 6px 10px; line-height: 1;
+    border: 1px solid var(--ink);
+  }
+  .frame-art .badge.outline {
+    background: transparent; color: var(--ink);
+    border-color: var(--line-strong);
+  }
+
+  /* Jenga tower — featured tile */
+  .frame-art.jenga {
+    background: linear-gradient(170deg, #2A1D11 0%, #4A331C 60%, #6A4825 100%);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .frame-art.jenga .jenga-tower {
+    position: relative;
+    display: flex; flex-direction: column-reverse;
+    gap: 5px;
+    transform: perspective(900px) rotateX(8deg) rotateY(-14deg) rotateZ(-2deg);
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .work.featured:hover .frame-art.jenga .jenga-tower {
+    transform: perspective(900px) rotateX(10deg) rotateY(-10deg) rotateZ(-1.5deg) translateY(-4px);
+  }
+  .frame-art.jenga .row {
+    display: flex; gap: 5px;
+  }
+  .frame-art.jenga .row span {
+    display: block;
+    width: 44px; height: 18px;
+    background: linear-gradient(180deg, #E8C083 0%, #C28A47 70%, #8A5A24 100%);
+    box-shadow:
+      inset 0 -2px 0 rgba(0,0,0,0.25),
+      inset 0 1px 0 rgba(255,235,200,0.4),
+      0 2px 0 rgba(0,0,0,0.18);
+  }
+  /* alternate row direction so it actually looks like jenga */
+  .frame-art.jenga .row:nth-child(even) {
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+  /* a couple of slightly displaced blocks for character */
+  .frame-art.jenga .r3 span:nth-child(2) { transform: translateX(8px); opacity: 0.85; }
+  .frame-art.jenga .r5 span:nth-child(1) { transform: translateX(-6px) rotate(-3deg); }
+  .frame-art.jenga .r6 span:nth-child(3) { transform: translateY(-2px); }
+  .frame-art.jenga .jenga-shadow {
+    position: absolute;
+    width: 60%; height: 14px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.55), transparent 70%);
+    bottom: 12%;
+    filter: blur(3px);
+  }
+
+  /* Queue — request slot */
+  .frame-art.queue {
+    background: var(--paper);
+    padding: 22px;
+  }
+  .frame-art.queue .queue-grid {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: stretch;
+  }
+  .frame-art.queue .q-card {
+    border: 1.5px dashed var(--line-strong);
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--mute);
+    padding: 14px;
+    text-align: center;
+  }
+  .frame-art.queue .q-card.q-b {
+    background: color-mix(in oklab, var(--glow) 14%, var(--paper));
+    border-style: solid;
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .frame-art.queue .q-card span { display: block; line-height: 1.3; }
+
+  /* WIP */
+  .frame-art.wip {
+    background: var(--bg-2);
+    overflow: hidden;
+  }
+  .frame-art.wip .wip-stripes {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      135deg,
+      transparent 0 28px,
+      color-mix(in oklab, var(--ink) 8%, transparent) 28px 30px
+    );
+  }
+  .frame-art.wip .wip-stamp {
+    position: relative;
+    font-size: 58px;
+    color: var(--ink-2);
+    border: 2px solid var(--line-strong);
+    padding: 14px 28px;
+    transform: rotate(-6deg);
+    background: var(--bg);
+  }
+
+  /* GitHub repos */
+  .frame-art.repos {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 28px;
+    align-items: center; justify-content: center;
+  }
+  .frame-art.repos .repo-list {
+    width: 100%;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .frame-art.repos .repo {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 14px; align-items: center;
+    padding: 14px 4px;
+    border-top: 1px solid color-mix(in oklab, var(--bg) 22%, transparent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+  .frame-art.repos .repo:first-child { border-top: none; }
+  .frame-art.repos .repo .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 8px var(--glow);
+  }
+  .frame-art.repos .repo .name { color: var(--bg); }
+  .frame-art.repos .repo .meta-tag {
+    color: color-mix(in oklab, var(--bg) 55%, transparent);
+    font-size: 10px;
+    border: 1px solid color-mix(in oklab, var(--bg) 22%, transparent);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+
+  /* ---------- STUDIO / ABOUT ---------- */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 56px; align-items: start;
+  }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-copy p {
+    font-family: 'Newsreader', serif;
+    font-size: 22px; line-height: 1.5;
+    margin: 0 0 22px;
+    max-width: 38ch;
+  }
+  .about-copy p:first-of-type {
+    font-family: 'Instrument Serif', serif;
+    font-size: 34px; line-height: 1.15;
+    color: var(--ink);
+  }
+  .about-copy em { font-style: italic; color: var(--ink-2); }
+
+  .studio-stats {
+    margin: 36px 0 0; padding: 22px 0 0;
+    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    color: var(--mute);
+  }
+  .studio-stats > div { display: flex; flex-direction: column; gap: 6px; }
+  .studio-stats dt { font-size: 11px; }
+  .studio-stats dd {
+    margin: 0;
+    font-family: 'Instrument Serif', serif;
+    font-size: 34px; line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .studio-stats dd .count {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  .studio-stats dd .count.live {
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+  .studio-stats dd .count.live.bumping {
+    color: var(--glow);
+  }
+  .studio-stats dd .live-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 8px var(--glow);
+    margin-left: 8px;
+    vertical-align: middle;
+    animation: pulse-live 2s ease-in-out infinite;
+    position: relative;
+    top: -4px;
+  }
+  @keyframes pulse-live {
+    0%, 100% { opacity: 0.45; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  .founder-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 0;
+    position: relative;
+  }
+  .founder-card .top {
+    aspect-ratio: 4/3;
+    background: var(--bg-2);
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .founder-card .top img {
+    width: 88%; max-height: 100%; object-fit: contain; object-position: center bottom;
+  }
+  .founder-card .top .eyeglow-mini {
+    position: absolute;
+    width: 28%; height: 28%; left: 18%; top: 28%;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--glow) 65%, transparent), transparent 70%);
+    filter: blur(8px);
+    mix-blend-mode: screen;
+    opacity: calc(0.6 * var(--glow-strength));
+  }
+  .founder-card .body { padding: 24px 26px 28px; }
+  .founder-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400; font-size: 30px; margin: 0 0 4px;
+  }
+  .founder-card .role { color: var(--mute); }
+  .founder-card dl {
+    margin: 18px 0 0; padding: 0;
+    display: grid; grid-template-columns: 90px 1fr;
+    gap: 10px 18px;
+    border-top: 1px solid var(--line); padding-top: 16px;
+  }
+  .founder-card dt { color: var(--mute); }
+  .founder-card dd { margin: 0; }
+
+  /* ---------- SERVICES ---------- */
+  .services {
+    display: grid; grid-template-columns: 1fr;
+    border-top: 1px solid var(--ink);
+  }
+  .service {
+    display: grid; grid-template-columns: 80px 1fr 280px 80px;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+    transition: padding-left 0.25s ease, background 0.25s;
+    cursor: default;
+  }
+  .service:hover { padding-left: 16px; background: color-mix(in oklab, var(--glow) 8%, transparent); }
+  .service .num { color: var(--mute); }
+  .service h3 {
+    margin: 0;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400; font-size: 38px; line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .service h3 em { font-style: italic; color: var(--ink-2); }
+  .service p { margin: 0; color: var(--ink-2); }
+  .service .star {
+    justify-self: end;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--glow); box-shadow: 0 0 12px var(--glow);
+    opacity: calc(0.85 * var(--glow-strength));
+  }
+  @media (max-width: 880px) {
+    .service { grid-template-columns: 60px 1fr; }
+    .service p, .service .star { grid-column: 2; }
+    .service p { color: var(--ink-2); }
+    .service .star { justify-self: start; }
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 880px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .process-grid { grid-template-columns: 1fr; } }
+  .step {
+    border: 1px solid var(--line);
+    padding: 26px 22px;
+    background: var(--paper);
+    position: relative;
+    display: flex; flex-direction: column; gap: 14px;
+    min-height: 220px;
+  }
+  .step .toast-icon {
+    width: 56px; height: 56px;
+    position: relative;
+  }
+  .step h4 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400; font-size: 26px; margin: 0;
+  }
+  .step p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+  .step .step-num { position: absolute; top: 22px; right: 22px; color: var(--mute); }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--bg-2);
+  }
+  .contact .big {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(48px, 9vw, 132px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin: 24px 0 32px;
+  }
+  .contact .big em { font-style: italic; color: var(--ink-2); }
+  .contact .big a {
+    color: var(--ink); text-decoration: none;
+    background: linear-gradient(transparent 70%, var(--glow) 70%);
+    background-size: 100% 100%;
+    padding: 0 6px;
+    transition: background-size 0.3s;
+  }
+  .contact .big a:hover { background-size: 100% 200%; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 40px 0 50px;
+    border-top: 1px solid var(--line);
+    color: var(--mute);
+  }
+  footer .wrap {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px; align-items: end;
+  }
+  @media (max-width: 720px) { footer .wrap { grid-template-columns: 1fr; gap: 14px; } }
+  footer .col.center { text-align: center; }
+  footer .col.right { text-align: right; }
+  footer a { color: var(--mute); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  /* footer mini-toaster */
+  .mini-toaster {
+    position: fixed; right: 28px; bottom: 28px; z-index: 40;
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--paper); border: 1px solid var(--line-strong);
+    box-shadow: 0 10px 24px color-mix(in oklab, var(--ink) 25%, transparent);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .mini-toaster:hover { transform: scale(1.06) rotate(-3deg); }
+  .mini-toaster img { width: 110%; height: 110%; object-fit: contain; object-position: center 60%; }
+  .mini-toaster .mini-glow {
+    position: absolute; width: 32%; height: 28%; left: 22%; top: 32%;
+    background: radial-gradient(closest-side, var(--glow), transparent 70%);
+    mix-blend-mode: screen;
+    opacity: calc(0.7 * var(--glow-strength));
+  }
+
+  /* reveal */
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition: none !important; }
+  }
+</style>
+</head>
+<body data-palette="toast">
+
+<!-- ============== NAV ============== -->
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="pip" aria-hidden="true"></span>
+      <span class="wordmark">Toaster <em>Studios</em></span>
+    </a>
+    <ul>
+      <li><a class="navlink" href="#work">Work</a></li>
+      <li><a class="navlink" href="#studio">Studio</a></li>
+      <li><a class="navlink" href="#services">Services</a></li>
+      <li><a class="navlink" href="#process">Process</a></li>
+      <li><a class="navlink" href="#contact">Contact</a></li>
+    </ul>
+    <div class="status" aria-live="polite">
+      <span class="dot"></span>
+      <span>Toasting · 1 mod live · taking requests</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<header class="hero" id="top">
+  <div class="wrap">
+
+    <div class="hero-meta mono">
+      <div class="left">Joined Modrinth · 3 months ago · 1 mod live</div>
+      <div class="center">a very small mod studio</div>
+      <div class="right">Index № 001 / Jenga Era</div>
+    </div>
+
+    <h1 class="display" data-reveal>
+      Crazy things in Minecraft <em>that</em><br>
+      unbrain your <span style="white-space: nowrap"><span class="slot" id="slot" aria-live="polite"><span class="slot-track" id="slot-track"><span class="slot-word gold">brain.</span><span class="slot-word gold">noggin.</span><span class="slot-word gold">skull.</span><span class="slot-word gold">cortex.</span><span class="slot-word gold">cranium.</span><span class="slot-word gold">head.</span><span class="slot-word gold">mind.</span></span></span></span>
+    </h1>
+
+    <div class="hero-row">
+      <div data-reveal>
+        <p class="lede">
+          We make weird, slightly cursed Minecraft mods.
+          Physics jokes, oddly specific YouTuber recreations, the
+          occasional <em>regrettable mob.</em> If you saw a mod in a video
+          and nobody ever shipped it, we'll have a crack at it.
+          Our creative director sleeps 16 hours a day, so we get a lot done in the other eight.
+        </p>
+        <div class="compat mono">
+          <span>Fabric</span><span class="dot-sep">·</span><span>Client + Server</span><span class="dot-sep">·</span><span>Cursed · Game Mechanics · Minigame</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">Get the mods on Modrinth <span class="arrow">→</span></a>
+          <a class="btn ghost" href="#contact">Request a recreation</a>
+        </div>
+      </div>
+
+      <div class="toaster-stage" id="stage" data-reveal>
+        <div class="crumbs" id="crumbs" aria-hidden="true"></div>
+        <img class="photo" src="assets/toaster.png" alt="Toaster, the studio's chonky founder, glowing eyes and all" />
+        <div class="eyeglow" id="eyeglow"></div>
+        <div class="floaty-tag">
+          <span class="bubble">"Hire me, or else."</span>
+          <span class="mono who">Toaster, lead creature designer</span>
+        </div>
+        <div class="nameplate mono">
+          <span class="tick"></span>
+          <span>Fig. 01 / the founder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============== MARQUEE ============== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+      <span>Cursed game mechanics</span><span class="star"></span>
+      <span><em>YouTuber mod recreations</em></span><span class="star"></span>
+      <span>Physics jokes</span><span class="star"></span>
+      <span><em>Minigames</em></span><span class="star"></span>
+      <span>Unbrained brains</span><span class="star"></span>
+      <span><em>Block towers that topple</em></span><span class="star"></span>
+      <span>Tiny fabric mods</span><span class="star"></span>
+      <span><em>Cat-supervised QA</em></span><span class="star"></span>
+  </div>
+</div>
+
+<!-- ============== WORK ============== -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 02 / The slate</div>
+      <h2 class="sec-title">One shipped. <em>A few more in the oven.</em></h2>
+    </div>
+
+    <div class="work-grid">
+
+      <a class="work featured" href="https://modrinth.com/mod/jenga-mod" target="_blank" rel="noopener" data-reveal>
+        <div class="frame">
+          <div class="frame-art jenga">
+            <div class="jenga-tower" aria-hidden="true">
+              <div class="row r1"><span></span><span></span><span></span></div>
+              <div class="row r2"><span></span><span></span><span></span></div>
+              <div class="row r3"><span></span><span></span><span></span></div>
+              <div class="row r4"><span></span><span></span><span></span></div>
+              <div class="row r5"><span></span><span></span><span></span></div>
+              <div class="row r6"><span></span><span></span><span></span></div>
+              <div class="row r7"><span></span><span></span><span></span></div>
+            </div>
+            <div class="jenga-shadow"></div>
+            <span class="badge mono">SHIPPED</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Jenga Mod <span class="sub">that one systemzee video, but real</span></h3>
+          <span class="mono tags">Cursed · Fabric · 39 downloads</span>
+        </div>
+      </a>
+
+      <a class="work" href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener" data-reveal>
+        <div class="frame">
+          <div class="frame-art queue">
+            <div class="queue-grid" aria-hidden="true">
+              <div class="q-card q-a"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-b"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-c"><span class="mono">RECREATION REQUEST</span></div>
+            </div>
+            <span class="badge mono outline">QUEUE</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>YouTuber Mod Recreations <span class="sub">if nobody shipped it, we will</span></h3>
+          <span class="mono tags">Open queue · Send the video</span>
+        </div>
+      </a>
+
+      <a class="work" href="#contact" data-reveal>
+        <div class="frame">
+          <div class="frame-art wip">
+            <div class="wip-stripes" aria-hidden="true"></div>
+            <div class="wip-stamp serif italic">Project №&thinsp;002</div>
+            <span class="badge mono outline">IN&nbsp;DEV</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Untitled Cursed Thing <span class="sub">currently unbraining a brain</span></h3>
+          <span class="mono tags">Fabric · TBA</span>
+        </div>
+      </a>
+
+      <a class="work" href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener" data-reveal>
+        <div class="frame">
+          <div class="frame-art repos">
+            <div class="repo-list" aria-hidden="true">
+              <div class="repo"><span class="dot"></span><span class="name">Jenga-Mod</span><span class="meta-tag mono">Public</span></div>
+              <div class="repo"><span class="dot"></span><span class="name">Jenga-permissions</span><span class="meta-tag mono">Public</span></div>
+              <div class="repo"><span class="dot"></span><span class="name">Jenga-Issues</span><span class="meta-tag mono">Public</span></div>
+            </div>
+            <span class="badge mono outline">SOURCE</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>On GitHub <span class="sub">three repos and counting</span></h3>
+          <span class="mono tags">@ToasterStudiosMods</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== STUDIO ============== -->
+<section id="studio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 03 / The studio</div>
+      <h2 class="sec-title">One modder, <em>one very serious cat.</em></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy" data-reveal>
+        <p>
+          Toaster Studios is a one-person mod shop with a cat on payroll.
+          We started a few months ago and we ship slow on purpose.
+        </p>
+        <p>
+          The brief is short: <em>crazy things in Minecraft that unbrain
+          your brain.</em> Physics jokes, tiny mechanics, the occasional
+          regrettable mob — and if a YouTuber showed off a mod and never
+          released it, we'll have a go at recreating it.
+        </p>
+        <p>
+          One mod is live so far. A few more are toasting. The cat
+          supervises.
+        </p>
+        <dl class="studio-stats mono">
+          <div><dt>Joined Modrinth</dt><dd>3 mo ago</dd></div>
+          <div><dt>Mods live</dt><dd><span class="count" data-count-to="1" data-count-suffix="">0</span></dd></div>
+          <div><dt>Total downloads</dt><dd><span class="count live" id="downloadsCount" data-count-to="39" data-count-suffix="">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+        </dl>
+      </div>
+
+      <div class="founder-card" data-reveal>
+        <div class="top">
+          <img src="assets/toaster.png" alt="Toaster the cat" />
+          <div class="eyeglow-mini"></div>
+        </div>
+        <div class="body">
+          <h4>Toaster</h4>
+          <div class="role mono">Co-founder · Lead creature designer</div>
+          <dl class="mono">
+            <dt>Joined</dt><dd class="serif" style="text-transform:none; font-size: 16px; letter-spacing: 0">Day one. We named the studio after him.</dd>
+            <dt>Strengths</dt><dd class="serif" style="text-transform:none; font-size: 16px; letter-spacing: 0">Loafing, staring, glowing.</dd>
+            <dt>In-game</dt><dd class="serif" style="text-transform:none; font-size: 16px; letter-spacing: 0">Tameable, purrs, drops crumbs.</dd>
+            <dt>Comp</dt><dd class="serif" style="text-transform:none; font-size: 16px; letter-spacing: 0">Two cans wet food / day.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 04 / What we make</div>
+      <h2 class="sec-title">A short list, <em>weird on purpose.</em></h2>
+    </div>
+
+    <div class="services">
+      <div class="service">
+        <div class="mono num">01</div>
+        <h3>Cursed <em>mechanics</em></h3>
+        <p>One small, slightly broken-feeling idea, tuned until it's funny. Fabric, client + server.</p>
+        <div class="star"></div>
+      </div>
+      <div class="service">
+        <div class="mono num">02</div>
+        <h3>YouTuber mod <em>recreations</em></h3>
+        <p>Saw a mod in a video and nobody ever shipped it? Send the link. We'll have a crack at it — that's how Jenga Mod happened.</p>
+        <div class="star"></div>
+      </div>
+      <div class="service">
+        <div class="mono num">03</div>
+        <h3>Physics &amp; <em>minigames</em></h3>
+        <p>Towers that fall, blocks that don't behave, party-style chaos. Stuff a server can actually play together.</p>
+        <div class="star"></div>
+      </div>
+      <div class="service">
+        <div class="mono num">04</div>
+        <h3>Regrettable <em>mobs</em></h3>
+        <p>Tameable, untameable, or actively spiteful. If you have a sketch on a napkin we can probably model around it.</p>
+        <div class="star"></div>
+      </div>
+      <div class="service">
+        <div class="mono num">05</div>
+        <h3>Suggestions, <em>seriously</em></h3>
+        <p>The whole studio is one person and a cat. Open an issue on GitHub, drop a Modrinth comment, whatever — we read them.</p>
+        <div class="star"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROCESS ============== -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 05 / How we work</div>
+      <h2 class="sec-title">Proof. Mix. Toast. <em>Plate.</em></h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><rect x="6" y="14" width="44" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 14 V8 M28 14 V6 M40 14 V8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div class="mono step-num">01 / Proof</div>
+        <h4>You send the link.</h4>
+        <p>A YouTube clip, a screenshot, a half-finished idea typed at 2am. We write back with what we think it'd take.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><circle cx="28" cy="28" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 12 V28 L40 36" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div class="mono step-num">02 / Mix</div>
+        <h4>We prototype.</h4>
+        <p>Couple of weekends of trying weird stuff in Fabric. Most of it goes in the bin. We show you the survivors.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><rect x="8" y="20" width="40" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 20 V12 M28 20 V10 M38 20 V12" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="42" cy="32" r="2" fill="currentColor"/></svg>
+        </div>
+        <div class="mono step-num">03 / Toast</div>
+        <h4>We build it properly.</h4>
+        <p>Code, balance, sounds, permissions, the edge cases. The cat watches. This part is most of the project.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><path d="M8 40 Q28 20 48 40" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="30" r="3" fill="currentColor"/></svg>
+        </div>
+        <div class="mono step-num">04 / Plate</div>
+        <h4>Up on Modrinth.</h4>
+        <p>Release notes, GitHub issues open, replies in the comments. If it breaks, we patch it. That's the deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="mono" style="color: var(--mute)">§ 06 / Get in touch</div>
+    <p class="big">
+      Saw a mod in a video? <em>Send the link.</em><br>
+      <a href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">modrinth.com/user/ToasterStudios</a>
+    </p>
+    <div class="mono" style="color: var(--mute)">
+      Or open an issue on <a href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline">GitHub</a> · Suggestions welcome · Toaster reads everything
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap">
+    <div class="col left mono">© 2026 Toaster Studios · not affiliated with Mojang</div>
+    <div class="col center mono">Made with butter and Fabric</div>
+    <div class="col right mono">
+      <a href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">Modrinth</a> · <a href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener">GitHub</a> · <a href="https://modrinth.com/mod/jenga-mod" target="_blank" rel="noopener">Jenga Mod</a>
+    </div>
+  </div>
+</footer>
+
+<!-- floating mini-toaster button -->
+<a class="mini-toaster" href="#top" title="Back to top" aria-label="Back to top">
+  <img src="assets/toaster.png" alt="" />
+  <span class="mini-glow"></span>
+</a>
+
+<!-- ============== SCRIPTS ============== -->
+<script>
+  // Apply persisted defaults
+  (function () {
+    const t = window.TWEAK_DEFAULTS || {};
+    document.body.dataset.palette = t.palette || 'toast';
+    document.documentElement.style.setProperty('--glow-strength', String(t.glow ?? 1));
+    if (t.headline) {
+      // allow editing the headline via tweaks
+      const h = document.querySelector('.display');
+      if (h && typeof t.headline === 'string' && t.headline.includes("they")) {
+        // leave the structured one alone if default
+      }
+    }
+    if (t.showCrumbs === false) {
+      const c = document.getElementById('crumbs');
+      if (c) c.style.display = 'none';
+    }
+  })();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+  // Eye-glow follows cursor
+  const stage = document.getElementById('stage');
+  const glow = document.getElementById('eyeglow');
+  if (stage && glow) {
+    stage.addEventListener('mousemove', (ev) => {
+      const r = stage.getBoundingClientRect();
+      const cx = r.left + r.width * 0.38;
+      const cy = r.top + r.height * 0.42;
+      const dx = (ev.clientX - cx) / r.width;
+      const dy = (ev.clientY - cy) / r.height;
+      const tx = Math.max(-1, Math.min(1, dx)) * 8;
+      const ty = Math.max(-1, Math.min(1, dy)) * 6;
+      glow.style.transform = `translate(${tx}px, ${ty}px) scale(${1 + Math.abs(dx) * 0.05})`;
+    });
+    stage.addEventListener('mouseleave', () => {
+      glow.style.transform = '';
+    });
+  }
+
+  // Crumbs around the cat
+  (function () {
+    const c = document.getElementById('crumbs');
+    if (!c) return;
+    const N = 16;
+    for (let i = 0; i < N; i++) {
+      const d = document.createElement('div');
+      d.className = 'crumb';
+      const x = Math.random() * 100;
+      const y = 55 + Math.random() * 45;
+      const r = 2 + Math.random() * 5;
+      d.style.left = x + '%';
+      d.style.top = y + '%';
+      d.style.width = r + 'px';
+      d.style.height = (r * 0.6) + 'px';
+      d.style.background = `hsl(${30 + Math.random()*15}, ${40 + Math.random()*20}%, ${30 + Math.random()*25}%)`;
+      d.style.transform = `rotate(${Math.random() * 360}deg)`;
+      d.style.opacity = (0.3 + Math.random() * 0.4).toFixed(2);
+      c.appendChild(d);
+    }
+  })();
+
+  // Marquee — duplicate content so the loop is seamless
+  (function () {
+    const m = document.getElementById('marquee');
+    if (!m) return;
+    m.innerHTML = m.innerHTML + m.innerHTML;
+  })();
+
+  // Slot machine — cycle adjective in headline
+  (function () {
+    const slot = document.getElementById('slot');
+    const track = document.getElementById('slot-track');
+    if (!slot || !track) return;
+    const words = Array.from(track.children);
+    if (!words.length) return;
+
+    // Pin slot to the widest word so changing words never reflows the headline.
+    // Words still cycle via translateY on the track; only the period's
+    // distance from each word's tail varies.
+    const measure = () => {
+      const widths = words.map((w) => w.getBoundingClientRect().width);
+      return Math.ceil(Math.max(...widths));
+    };
+
+    let maxW = measure();
+    let idx = 0;
+    const setTo = (i) => {
+      slot.style.width = maxW + 'px';
+      track.style.transform = `translateY(${-i * 0.92}em)`;
+    };
+    setTo(0);
+
+    // Recompute on resize (font-size is fluid via clamp + vw)
+    let rAF;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => { maxW = measure(); setTo(idx); });
+    });
+
+    // Tick after a short beat so the hero reveal lands first
+    setTimeout(() => {
+      setInterval(() => {
+        idx = (idx + 1) % words.length;
+        setTo(idx);
+      }, 2200);
+    }, 1400);
+  })();
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 50, behavior: 'smooth' });
+    });
+  });
+
+  // ---- Count-up animation ----
+  // Ticks visibly through 1, 2, 3... using rAF + ease-out so you can read the digits flicker.
+  function countUp(el, target, duration) {
+    if (!el) return;
+    const start = parseInt(el.textContent, 10) || 0;
+    if (start === target) return;
+    // dynamic duration: ~28ms per step, capped between 500–1800ms
+    const dur = duration || Math.max(500, Math.min(1800, Math.abs(target - start) * 28));
+    const startTime = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - startTime) / dur);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      const value = Math.round(start + (target - start) * eased);
+      el.textContent = value;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // Animate any [.count] when it enters view
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.dataset.countTo, 10) || 0;
+        countUp(el, target);
+        countObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.count').forEach((el) => countObs.observe(el));
+
+  // ---- Live Modrinth stats ----
+  // Polls the public Modrinth API for ToasterStudios's projects and updates
+  // the downloads + mods-live counters with a count-up animation when they change.
+  const dlEl = document.getElementById('downloadsCount');
+  let lastDownloads = null;
+  let lastFetchOk = false;
+
+  async function fetchModrinthStats() {
+    try {
+      const res = await fetch('https://api.modrinth.com/v2/user/ToasterStudios/projects', {
+        headers: { 'Accept': 'application/json' },
+      });
+      if (!res.ok) throw new Error('http ' + res.status);
+      const projects = await res.json();
+      const totalDownloads = projects.reduce((s, p) => s + (p.downloads || 0), 0);
+      const modsLive = projects.filter((p) => p.published || p.status === 'approved' || p.downloads >= 0).length;
+
+      lastFetchOk = true;
+
+      if (dlEl) {
+        const current = lastDownloads ?? (parseInt(dlEl.textContent, 10) || 0);
+        if (current !== totalDownloads) {
+          // first paint defers to the IntersectionObserver; later updates animate immediately
+          if (lastDownloads !== null) {
+            countUp(dlEl, totalDownloads, 700);
+            dlEl.classList.add('bumping');
+            setTimeout(() => dlEl.classList.remove('bumping'), 900);
+          }
+          dlEl.dataset.countTo = String(totalDownloads);
+          lastDownloads = totalDownloads;
+        }
+      }
+    } catch (err) {
+      // silent — fall back to the hard-coded numbers in the markup
+      lastFetchOk = false;
+    }
+  }
+  // Initial fetch + poll every 30s while the tab is visible
+  fetchModrinthStats();
+  setInterval(() => {
+    if (document.visibilityState === 'visible') fetchModrinthStats();
+  }, 30000);
+  // Also re-fetch when the tab regains focus
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') fetchModrinthStats();
+  });
+</script>
+
+<!-- Tweaks panel (React) -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="lib/tweaks-panel.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+
+  function TweaksApp() {
+    const [t, setTweak] = useTweaks(window.TWEAK_DEFAULTS);
+
+    useEffect(() => {
+      document.body.dataset.palette = t.palette;
+      document.documentElement.style.setProperty('--glow-strength', String(t.glow));
+      const crumbs = document.getElementById('crumbs');
+      if (crumbs) crumbs.style.display = t.showCrumbs ? '' : 'none';
+    }, [t.palette, t.glow, t.showCrumbs]);
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Palette">
+          <TweakSelect
+            label="Studio palette"
+            value={t.palette}
+            onChange={(v) => setTweak('palette', v)}
+            options={[
+              { value: 'toast',  label: 'Toast / warm cream (default)' },
+              { value: 'milk',   label: 'Milk / calm sage on bone' },
+              { value: 'cherry', label: 'Cherry / terracotta blush' },
+              { value: 'ember',  label: 'Ember / dark mode' },
+            ]}
+          />
+        </TweakSection>
+        <TweakSection label="Toaster">
+          <TweakSlider
+            label="Eye glow"
+            min={0} max={1.6} step={0.05}
+            value={t.glow}
+            onChange={(v) => setTweak('glow', v)}
+          />
+          <TweakToggle
+            label="Crumbs around the cat"
+            value={t.showCrumbs}
+            onChange={(v) => setTweak('showCrumbs', v)}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+</script>
+
+</body>
+</html>
