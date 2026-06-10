@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>Lost a brain / Toaster Studios</title>
+<meta name="description" content="This page got unbrained. Head back to Toaster Studios." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body data-page="">
+
+<section class="notfound">
+  <div class="wrap">
+    <p class="code"><span class="gold">404</span></p>
+    <p>Toaster sat on this page and it hasn't been the same since. <em>The brain is gone.</em></p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn primary" href="/">Back home <span class="arrow">→</span></a>
+      <a class="btn ghost" href="/mods/">See the mods</a>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>Off da grid blocks / Toaster Studios</title>
+<meta name="description" content="Off da grid blocks — a wand that places fully hitboxed Minecraft blocks at any angle, off the grid. Inspired by an ElementX video. Fabric, Minecraft 1.21.1." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body data-page="mods">
+
+<!-- ============== PAGE HERO ============== -->
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb mono">
+      <a href="/">Home</a><span class="sep">/</span><a href="/mods/">Mods</a><span class="sep">/</span><span class="here">Off da grid blocks</span>
+    </div>
+    <h1 class="page-title">Off da grid <span class="gold">blocks.</span></h1>
+    <p class="page-sub">
+      A wand that places full, working, hitboxed blocks at <em>any</em> angle,
+      free of the grid. Based on that ElementX video where blocks sit on an
+      offset. Now you can actually do it.
+    </p>
+  </div>
+</header>
+
+<!-- ============== DETAIL ============== -->
+<section class="mod-detail">
+  <div class="wrap">
+    <div class="mod-layout">
+
+      <div class="mod-shot" data-reveal>
+        <img src="/assets/img/offgrid-shot.png" alt="Off da grid blocks in-game: blocks placed at offset angles" />
+        <span class="badge mono">NEW · v1.21.1</span>
+      </div>
+
+      <aside class="mod-aside" data-reveal>
+        <dl class="spec">
+          <div class="row"><dt class="mono">Platform</dt><dd>Fabric</dd></div>
+          <div class="row"><dt class="mono">Minecraft</dt><dd>1.21.1 · Java Edition</dd></div>
+          <div class="row"><dt class="mono">Environment</dt><dd>Singleplayer + Server</dd></div>
+          <div class="row"><dt class="mono">Tags</dt><dd>Cursed · Game Mechanics</dd></div>
+          <div class="row"><dt class="mono">Downloads</dt><dd><span class="count live" id="offgridDownloads" data-count-to="16">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+          <div class="row"><dt class="mono">License</dt><dd>TSMLv1</dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn primary" href="https://modrinth.com/mod/off-da-grid-blocks" target="_blank" rel="noopener">Get it on Modrinth <span class="arrow">→</span></a>
+          <a class="btn ghost" href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener">View source</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <div class="mod-body">
+      <div class="prose">
+        <h2>What it is.</h2>
+        <p>
+          Minecraft puts every block on a tidy grid. This mod hands you a wand
+          that ignores it. Point, place, and the block lands on an offset, at an
+          angle, wherever you aimed, with a full working hitbox you can walk into
+          and break like any other block.
+        </p>
+
+        <h3>How it works.</h3>
+        <p>
+          Grab the offgrid wand. Press <em>B</em> to open the block picker,
+          choose what you want to place, then use the wand to drop it off the
+          grid. Breaking is normal: just mine the block like you would any other.
+          Breaking speed isn't the point here, the placement is.
+        </p>
+
+        <h3>Controls.</h3>
+        <ul class="controls mono">
+          <li><span class="keys"><kbd>B</kbd></span> Open the block picker menu</li>
+          <li><span class="keys"><kbd>Right click</kbd></span> Place a block off the grid</li>
+          <li><span class="keys"><kbd>Left click</kbd></span> Destroy a placed block</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RELATED ============== -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ Next</div>
+      <h2 class="sec-title">While you're here.</h2>
+    </div>
+    <div class="related-grid">
+      <a class="work" href="/mods/jengamod/" data-reveal>
+        <div class="frame">
+          <div class="frame-art jenga photo">
+            <img src="/assets/img/jenga-shot.png" alt="Jenga Mod in-game screenshot" />
+            <span class="badge mono">SHIPPED</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Jenga Mod <span class="sub">that one systemzee video, but real</span></h3>
+          <span class="mono tags">Cursed · Fabric</span>
+        </div>
+      </a>
+      <a class="work" href="/contact/" data-reveal>
+        <div class="frame">
+          <div class="frame-art queue">
+            <div class="queue-grid" aria-hidden="true">
+              <div class="q-card q-a"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-b"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-c"><span class="mono">RECREATION REQUEST</span></div>
+            </div>
+            <span class="badge mono outline">QUEUE</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Request a recreation <span class="sub">if nobody shipped it, we will</span></h3>
+          <span class="mono tags">Open queue · Send the video</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Local editor / preview config — not part of the published site
+.claude/
+
+# Local tooling & notes — keep these out of the public site repo
+deploy.py
+README.md
+
+# Python cache (from deploy.py)
+__pycache__/
+*.pyc
+
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store

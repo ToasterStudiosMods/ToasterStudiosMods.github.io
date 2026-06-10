@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>Studio / Toaster Studios</title>
+<meta name="description" content="Toaster Studios is a one-person Minecraft mod shop in New Jersey with a cat on payroll. We started this year and we ship slow on purpose. Meet Toaster, the founder." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body data-page="studio">
+
+<!-- ============== PAGE HERO ============== -->
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb mono">
+      <a href="/">Home</a><span class="sep">/</span><span class="here">Studio</span>
+    </div>
+    <h1 class="page-title">One modder, <em>one very<br><span class="gold">serious cat.</span></em></h1>
+    <p class="page-sub">
+      Toaster Studios is a one-person mod shop based in New Jersey,
+      with a cat on payroll. We started this year. <em>We ship slow on purpose.</em>
+    </p>
+  </div>
+</header>
+
+<!-- ============== ABOUT ============== -->
+<section id="studio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 01 / The studio</div>
+      <h2 class="sec-title">Small shop, <em>short brief.</em></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy" data-reveal>
+        <p>
+          Toaster Studios is a one-person mod shop with a cat on payroll.
+          We started this year and we ship slow on purpose.
+        </p>
+        <p>
+          The brief is short: <em>crazy things in Minecraft that unbrain
+          your brain.</em> Physics jokes, tiny mechanics, the occasional
+          regrettable mob — and if a YouTuber showed off a mod and never
+          released it, we'll have a go at recreating it.
+        </p>
+        <p>
+          We'd rather build one mechanic and tune it until it feels right
+          than crank out fifty that don't. One mod is live so far, a couple
+          more are toasting. The cat supervises.
+        </p>
+        <dl class="studio-stats mono">
+          <div><dt>Based in</dt><dd>New Jersey</dd></div>
+          <div><dt>Founded</dt><dd>2026</dd></div>
+          <div><dt>Cats on staff</dt><dd><span class="count" data-count-to="1">0</span></dd></div>
+        </dl>
+        <dl class="studio-stats mono">
+          <div><dt>Joined Modrinth</dt><dd>3 mo ago</dd></div>
+          <div><dt>Mods live</dt><dd><span class="count" data-count-to="2">0</span></dd></div>
+          <div><dt>Total downloads</dt><dd><span class="count live" id="downloadsCount" data-count-to="87">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+        </dl>
+      </div>
+
+      <div class="founder-card" data-reveal>
+        <div class="top">
+          <img src="/assets/img/toaster.png" alt="Toaster the cat" />
+          <div class="eyeglow-mini"></div>
+        </div>
+        <div class="body">
+          <h4>Toaster</h4>
+          <div class="role mono">Co-founder · Lead creature designer</div>
+          <dl class="mono">
+            <dt>Joined</dt><dd class="serif">Day one. We named the studio after him.</dd>
+            <dt>Strengths</dt><dd class="serif">Loafing, staring, glowing.</dd>
+            <dt>In-game</dt><dd class="serif">Tameable, purrs, drops crumbs.</dd>
+            <dt>Comp</dt><dd class="serif">Two cans wet food / day.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROCESS ============== -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ 02 / How we work</div>
+      <h2 class="sec-title">Proof. Mix. Toast. <em>Plate.</em></h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><rect x="6" y="14" width="44" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 14 V8 M28 14 V6 M40 14 V8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div class="mono step-num">01 / Proof</div>
+        <h4>You send the link.</h4>
+        <p>A YouTube clip, a screenshot, a half-finished idea typed at 2am. We write back with what we think it'd take.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><circle cx="28" cy="28" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 12 V28 L40 36" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </div>
+        <div class="mono step-num">02 / Mix</div>
+        <h4>We prototype.</h4>
+        <p>Couple of weekends of trying weird stuff in Fabric. Most of it goes in the bin. We show you the survivors.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><rect x="8" y="20" width="40" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 20 V12 M28 20 V10 M38 20 V12" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="42" cy="32" r="2" fill="currentColor"/></svg>
+        </div>
+        <div class="mono step-num">03 / Toast</div>
+        <h4>We build it properly.</h4>
+        <p>Code, balance, sounds, permissions, the edge cases. The cat watches. This part is most of the project.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56"><path d="M8 40 Q28 20 48 40" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="30" r="3" fill="currentColor"/></svg>
+        </div>
+        <div class="mono step-num">04 / Plate</div>
+        <h4>Up on Modrinth.</h4>
+        <p>Release notes, GitHub issues open, replies in the comments. If it breaks, we patch it. That's the deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT CTA ============== -->
+<section class="contact">
+  <div class="wrap">
+    <div class="mono" style="color: var(--mute)">§ 03 / Work with us</div>
+    <p class="big">
+      Got something <em>cursed?</em><br>
+      <a href="/contact/">Send it over.</a>
+    </p>
+    <div class="mono" style="color: var(--mute)">
+      Toaster reads everything.
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

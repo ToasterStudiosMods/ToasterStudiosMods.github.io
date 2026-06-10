@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>Jenga Mod / Toaster Studios</title>
+<meta name="description" content="Jenga Mod — a recreation of that one systemzee video, but real. Stack a tower of physics-driven blocks in Minecraft and pull them out one by one until it all comes down. Fabric, client + server." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body data-page="mods">
+
+<!-- ============== PAGE HERO ============== -->
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb mono">
+      <a href="/">Home</a><span class="sep">/</span><a href="/mods/">Mods</a><span class="sep">/</span><span class="here">Jenga Mod</span>
+    </div>
+    <h1 class="page-title">Jenga <span class="gold">Mod.</span></h1>
+    <p class="page-sub">
+      That one <em>systemzee</em> video, but real. A tower of physics-driven
+      blocks you stack, then pull out one at a time, until the whole thing
+      comes down on top of someone. Usually you.
+    </p>
+  </div>
+</header>
+
+<!-- ============== DETAIL ============== -->
+<section class="mod-detail">
+  <div class="wrap">
+    <div class="mod-layout">
+
+      <div class="mod-shot" data-reveal>
+        <img src="/assets/img/jenga-shot.png" alt="Jenga Mod in-game: a tall stacked tower of wooden blocks" />
+        <span class="badge mono">SHIPPED · FABRIC</span>
+      </div>
+
+      <aside class="mod-aside" data-reveal>
+        <dl class="spec">
+          <div class="row"><dt class="mono">Platform</dt><dd>Fabric</dd></div>
+          <div class="row"><dt class="mono">Minecraft</dt><dd>Java Edition</dd></div>
+          <div class="row"><dt class="mono">Environment</dt><dd>Client + Server</dd></div>
+          <div class="row"><dt class="mono">Tags</dt><dd>Cursed · Game Mechanics · Minigame</dd></div>
+          <div class="row"><dt class="mono">Downloads</dt><dd><span class="count live" id="jengaDownloads" data-count-to="71">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+          <div class="row"><dt class="mono">Source</dt><dd>Public on GitHub</dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn primary" href="https://modrinth.com/mod/jenga-mod" target="_blank" rel="noopener">Get it on Modrinth <span class="arrow">→</span></a>
+          <a class="btn ghost" href="https://github.com/ToasterStudiosMods/Jenga-Mod" target="_blank" rel="noopener">View source</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <div class="mod-body">
+      <div class="prose">
+        <h2>What it is.</h2>
+        <p>
+          We watched a systemzee clip of in-game Jenga and went looking for the
+          download. Nobody had shipped it. So we built it. Blocks stack into a
+          proper tower, behave like they have weight, and tip when you yank the
+          wrong one.
+        </p>
+
+        <h3>How it plays.</h3>
+        <p>
+          Set up a tower, take turns pulling blocks, and try not to be the one
+          who brings it down. It plays solo, but it's a lot funnier with a few
+          people on a server crowded around one increasingly wobbly stack.
+        </p>
+
+        <h3>Source &amp; issues.</h3>
+        <p>
+          The code is public. Found a bug or want a tweak? The Jenga repos live
+          on GitHub under <em>@ToasterStudiosMods</em> — Jenga-Mod for the code,
+          plus Jenga-permissions and Jenga-Issues. Open an issue, we read them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RELATED ============== -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ Next</div>
+      <h2 class="sec-title">While you're here.</h2>
+    </div>
+    <div class="related-grid">
+      <a class="work" href="/mods/offgridblocks/" data-reveal>
+        <div class="frame">
+          <div class="frame-art offgrid photo">
+            <img src="/assets/img/offgrid-shot.png" alt="Off da grid blocks in-game screenshot" />
+            <span class="badge mono">NEW · v1.21.1</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Off da grid blocks <span class="sub">a wand that places blocks at any angle</span></h3>
+          <span class="mono tags">Cursed · Fabric</span>
+        </div>
+      </a>
+      <a class="work" href="/contact/" data-reveal>
+        <div class="frame">
+          <div class="frame-art queue">
+            <div class="queue-grid" aria-hidden="true">
+              <div class="q-card q-a"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-b"><span class="mono">RECREATION REQUEST</span></div>
+              <div class="q-card q-c"><span class="mono">RECREATION REQUEST</span></div>
+            </div>
+            <span class="badge mono outline">QUEUE</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Request a recreation <span class="sub">if nobody shipped it, we will</span></h3>
+          <span class="mono tags">Open queue · Send the video</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
