@@ -666,6 +666,15 @@ section { padding: 120px 0; border-bottom: 1px solid var(--line); position: rela
   border: 1px solid color-mix(in oklab, var(--bg) 22%, transparent);
   padding: 3px 8px; border-radius: 999px;
 }
+/* clickable repo rows (each links to its own repo) */
+.frame-art.repos a.repo { text-decoration: none; color: inherit; cursor: pointer; transition: background 0.2s ease; }
+.frame-art.repos a.repo:hover { background: color-mix(in oklab, var(--bg) 12%, transparent); }
+.frame-art.repos a.repo:hover .name { text-decoration: underline; text-underline-offset: 3px; }
+.frame-art.repos a.repo:hover .dot { box-shadow: 0 0 12px var(--glow); }
+/* this tile is a list of links, not one single link */
+.work.repos-card { cursor: default; }
+.meta a.tags { text-decoration: none; transition: color 0.2s; }
+.meta a.tags:hover { color: var(--ink); }
 
 /* ---------- STUDIO / ABOUT ---------- */
 .about-grid {
