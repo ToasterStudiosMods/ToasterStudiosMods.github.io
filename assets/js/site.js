@@ -62,7 +62,9 @@
     var footer = document.createElement('footer');
     footer.innerHTML =
       '<div class="wrap">' +
-        '<div class="col left mono">© 2026 Toaster Studios · not affiliated with Mojang</div>' +
+        '<div class="col left mono">© 2026 Toaster Studios · not affiliated with Mojang' +
+          '<span class="legal-links"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/faq/">FAQ</a></span>' +
+        '</div>' +
         '<div class="col center mono">Made with butter and Fabric</div>' +
         '<div class="col right mono">' +
           '<a href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">Modrinth</a> · ' +

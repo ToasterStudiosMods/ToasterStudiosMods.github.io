@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>FAQ / Toaster Studios</title>
+<meta name="description" content="Frequently asked questions about Toaster Studios mods - how to install them, dependencies, modpack and redistribution rules, multiplayer support, bug reports, and requesting recreations." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9911131262467249" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body data-page="">
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb mono">
+      <a href="/">Home</a><span class="sep">/</span><span class="here">FAQ</span>
+    </div>
+    <h1 class="page-title">Questions, <span class="gold">answered.</span></h1>
+    <p class="page-sub">
+      The stuff people ask most about our mods - installing them, what they need
+      to run, the rules on sharing, and how to get help. Tap a question to expand it.
+    </p>
+  </div>
+</header>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-list">
+
+      <details>
+        <summary>What is Toaster Studios?</summary>
+        <div class="answer">
+          <p>
+            Toaster Studios is a one-person Minecraft mod studio (plus a cat named
+            Toaster) based in New Jersey. We make small, slightly cursed Fabric mods -
+            physics jokes, oddly specific mechanics, and recreations of mods people
+            have shown off in videos but never actually released.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What mods do you make?</summary>
+        <div class="answer">
+          <p>Two are live right now:</p>
+          <ul>
+            <li><a href="/mods/jengamod/">Jenga Mod</a> - real physics Jenga built on the Sable engine.</li>
+            <li><a href="/mods/offgridblocks/">Off da grid blocks</a> - place fully working blocks at any angle, off the grid.</li>
+          </ul>
+          <p>You can see everything on the <a href="/mods/">Mods page</a>, and more are in the oven.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Are the mods free?</summary>
+        <div class="answer">
+          <p>
+            Yes. Every mod is free to download from our
+            <a href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">Modrinth page</a>.
+            Please only download from official sources so you get a clean, up-to-date file.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I install a mod?</summary>
+        <div class="answer">
+          <p>Our mods run on the <strong>Fabric</strong> mod loader. The short version:</p>
+          <ul>
+            <li>Install <a href="https://fabricmc.net/" target="_blank" rel="noopener">Fabric Loader</a> for Minecraft 1.21.1.</li>
+            <li>Put <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener">Fabric API</a> in your <code>mods</code> folder.</li>
+            <li>Add the mod's <code>.jar</code> (and any dependencies it lists) to the same <code>mods</code> folder.</li>
+            <li>Launch the game with the Fabric profile.</li>
+          </ul>
+          <p>A launcher like the Modrinth app or Prism Launcher handles most of this for you.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do the mods need other mods to run?</summary>
+        <div class="answer">
+          <p>
+            All of them need <strong>Fabric API</strong>. Some need more - for example,
+            <a href="/mods/jengamod/">Jenga Mod</a> requires the
+            <a href="https://modrinth.com/mod/sable" target="_blank" rel="noopener">Sable</a>
+            physics engine, since that's what makes the pieces actually move. Each mod's
+            page and Modrinth listing spells out exactly what it needs.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do they work in multiplayer / on a server?</summary>
+        <div class="answer">
+          <p>
+            Generally yes, but they need to be installed on <strong>both the client and
+            the server</strong>, on the same Minecraft version. These mods change how the
+            game behaves, so a vanilla client can't join a server running them and expect
+            it to work. Check each mod's page for its specifics.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What Minecraft versions are supported?</summary>
+        <div class="answer">
+          <p>
+            Right now everything targets <strong>Minecraft 1.21.1 (Java Edition)</strong>
+            on Fabric. If we add support for other versions, it'll be listed on the mod's
+            Modrinth page.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I use your mods in a modpack?</summary>
+        <div class="answer">
+          <p>
+            Yes - modpack inclusion is allowed under our license (TSMLv1), with credit,
+            whether you bundle the file or list it as a dependency from an official source.
+            No need to ask first. See the full
+            <a href="/terms/">terms</a> and the license that ships with each mod.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I re-upload or fork a mod?</summary>
+        <div class="answer">
+          <p>
+            You can publicly fork the source for personal tinkering or to contribute back.
+            What you <strong>can't</strong> do without permission is re-upload the mod
+            (source or a compiled build) to Modrinth, CurseForge, or anywhere else. If you
+            want to do something the license doesn't cover, email us and ask - we read them.
+            Details are in the <a href="/terms/">Terms of Use</a>.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I found a bug / I have a feature idea. Where does it go?</summary>
+        <div class="answer">
+          <p>
+            Open an issue on the mod's GitHub repo - for example
+            <a href="https://github.com/ToasterStudiosMods/Jenga-Mod/issues" target="_blank" rel="noopener">Jenga Mod issues</a>.
+            Include your Minecraft and loader versions, the other mods you're running, and
+            what you did vs. what happened. A crash log (pasted to
+            <a href="https://mclo.gs/" target="_blank" rel="noopener">mclo.gs</a>) helps a lot.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I request a mod you saw in a YouTube video?</summary>
+        <div class="answer">
+          <p>
+            That's literally how Jenga Mod happened. Head to the
+            <a href="/contact/">contact page</a> and send the link (or a description). No
+            promises, but we read every request.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is Toaster Studios affiliated with Mojang or Minecraft?</summary>
+        <div class="answer">
+          <p>
+            No. We're an independent fan project and are not affiliated with, endorsed by,
+            or sponsored by Mojang Studios or Microsoft. Minecraft is their property; we
+            just make mods for it.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
