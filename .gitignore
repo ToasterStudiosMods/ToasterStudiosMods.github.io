@@ -5,6 +5,9 @@
 deploy.py
 README.md
 
+# Design handoff bundle — local reference only, not part of the published site
+.design-handoff/
+
 # Python cache (from deploy.py)
 __pycache__/
 *.pyc
@@ -13,3 +16,4 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+.gstack/

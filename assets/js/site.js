@@ -42,7 +42,7 @@
           '</a>' +
           '<div class="status" aria-live="polite">' +
             '<span class="dot"></span>' +
-            '<span><span id="statusVerb">Toasting</span><span class="status-rest"> · 2 mods live · taking requests</span></span>' +
+            '<span><span id="statusVerb">Toasting</span><span class="status-rest"> · two games · taking requests</span></span>' +
           '</div>' +
         '</div>' +
         '<ul>' + links + '</ul>' +
@@ -62,10 +62,10 @@
     var footer = document.createElement('footer');
     footer.innerHTML =
       '<div class="wrap">' +
-        '<div class="col left mono">© 2026 Toaster Studios · not affiliated with Mojang' +
+        '<div class="col left mono">© 2026 Toaster Studios · not affiliated with Mojang or anyone who made The Stanley Parable' +
           '<span class="legal-links"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/faq/">FAQ</a></span>' +
         '</div>' +
-        '<div class="col center mono">Made with butter and Fabric</div>' +
+        '<div class="col center mono">Made with butter, Fabric, and a narrator</div>' +
         '<div class="col right mono">' +
           '<a href="https://modrinth.com/user/ToasterStudios" target="_blank" rel="noopener">Modrinth</a> · ' +
           '<a href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener">GitHub</a> · ' +
@@ -249,20 +249,51 @@
     }, 2500);
   }
 
-  /* ---------- live Modrinth stats ---------- */
+  /* ---------- relative "joined" date (never goes stale) ----------
+     Renders the studio's real Modrinth join date as "X months ago" into
+     every .js-joined element. Falls back to a baked-in date if the API is
+     unreachable, so it's still roughly right offline. */
+  var JOINED_FALLBACK = '2026-02-25T00:06:12Z';
+  function timeAgo(iso) {
+    var then = new Date(iso).getTime();
+    if (isNaN(then)) return null;
+    var days = Math.floor((Date.now() - then) / 86400000);
+    if (days < 0) return null;
+    if (days < 10) return days <= 1 ? 'this week' : days + ' days ago';
+    if (days < 56) return Math.round(days / 7) + ' weeks ago';
+    var months = Math.round(days / 30.44);
+    if (months < 18) return Math.max(1, months) + (months === 1 ? ' month ago' : ' months ago');
+    var years = Math.floor(days / 365.25);
+    return years + (years === 1 ? ' year ago' : ' years ago');
+  }
+  function setJoined(iso) {
+    var txt = timeAgo(iso);
+    if (!txt) return;
+    document.querySelectorAll('.js-joined').forEach(function (el) { el.textContent = txt; });
+  }
+  function wireJoined() {
+    if (!document.querySelector('.js-joined')) return;
+    setJoined(JOINED_FALLBACK); // paint immediately from the baked-in date
+    fetch('https://api.modrinth.com/v2/user/ToasterStudios', { headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (!res.ok) throw new Error('http ' + res.status); return res.json(); })
+      .then(function (u) { if (u && u.created) setJoined(u.created); })
+      .catch(function () { /* silent — fallback text stands */ });
+  }
+
+  /* ---------- live Modrinth stats ----------
+     Totals + the live mod count are mirrored into EVERY matching element
+     (.js-dl-total, .js-modcount) so the stat bar, the game tiles, and the
+     studio block all stay in sync. Per-mod counts use their ids. */
   function wireModrinth() {
-    var dlEl = document.getElementById('downloadsCount');
+    var totalEls = document.querySelectorAll('.js-dl-total');
+    var modCountEls = document.querySelectorAll('.js-modcount');
     var jengaDlEl = document.getElementById('jengaDownloads');
     var offgridDlEl = document.getElementById('offgridDownloads');
-    if (!dlEl && !jengaDlEl && !offgridDlEl) return;
+    if (!totalEls.length && !modCountEls.length && !jengaDlEl && !offgridDlEl) return;
 
-    var last = { total: null, jenga: null, offgrid: null };
+    var last = { total: null, jenga: null, offgrid: null, mods: null };
 
-    function bump(el, value, key) {
-      if (!el) return;
-      if (last[key] === value) return;          // unchanged since we last set it
-      var changed = last[key] !== null;         // a real change during polling
-      last[key] = value;
+    function bumpOne(el, value, changed) {
       el.dataset.countTo = String(value);       // becomes the count-up target
       // If the number is already on screen (scroll count-up ran), repaint it
       // to the live value now. Otherwise leave it for the observer to count up.
@@ -274,17 +305,26 @@
         }
       }
     }
+    function bump(els, value, key) {
+      if (!els || (els.length === 0 && !els.dataset)) return;
+      if (last[key] === value) return;          // unchanged since we last set it
+      var changed = last[key] !== null;         // a real change during polling
+      last[key] = value;
+      if (els.dataset) { bumpOne(els, value, changed); return; }   // single element
+      els.forEach(function (el) { bumpOne(el, value, changed); }); // NodeList
+    }
 
     function fetchStats() {
       fetch('https://api.modrinth.com/v2/user/ToasterStudios/projects', { headers: { 'Accept': 'application/json' } })
         .then(function (res) { if (!res.ok) throw new Error('http ' + res.status); return res.json(); })
         .then(function (projects) {
           var total = projects.reduce(function (s, p) { return s + (p.downloads || 0); }, 0);
-          bump(dlEl, total, 'total');
+          bump(totalEls, total, 'total');
+          bump(modCountEls, projects.length, 'mods');
           var jenga = projects.find(function (p) { return /jenga/i.test(p.slug || p.title || ''); });
-          if (jenga) bump(jengaDlEl, jenga.downloads || 0, 'jenga');
+          if (jenga && jengaDlEl) bump(jengaDlEl, jenga.downloads || 0, 'jenga');
           var offgrid = projects.find(function (p) { return /off.?da.?grid|grid.?blocks/i.test(p.slug || p.title || ''); });
-          if (offgrid) bump(offgridDlEl, offgrid.downloads || 0, 'offgrid');
+          if (offgrid && offgridDlEl) bump(offgridDlEl, offgrid.downloads || 0, 'offgrid');
         })
         .catch(function () { /* silent — markup numbers stand */ });
     }
@@ -321,6 +361,7 @@
   wireSlot();
   wireSmoothScroll();
   wireCounters();
+  wireJoined();
   wireModrinth();
   loadTawk();
 })();

@@ -1115,6 +1115,79 @@ kbd {
 /* footer legal links row */
 footer .col.left .legal-links { display: block; margin-top: 8px; }
 
+/* =====================================================================
+   GAME PICKER (homepage hero) — "choose your game", editorial-Minecraft
+   take on the CurseForge landing pattern. Two games, real numbers.
+   ===================================================================== */
+.picker { padding: 56px 0 100px; border-bottom: 1px solid var(--line); position: relative; }
+.picker .wrap { position: relative; }
+.picker .display { margin-top: 36px; text-align: center; }
+.picker .pick-sub {
+  font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.55;
+  color: var(--ink-2); max-width: 58ch; margin: 26px auto 0; text-align: center;
+}
+.picker .pick-sub em { font-style: italic; color: var(--ink); }
+
+/* stat bar — four cells, hairline-divided, serif numbers + mono labels */
+.statbar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  max-width: 880px; margin: 48px auto 0;
+}
+.statbar .stat { padding: 24px 16px; text-align: center; border-left: 1px solid var(--line); }
+.statbar .stat:first-child { border-left: none; }
+.statbar .stat .num {
+  display: block;
+  font-family: 'Instrument Serif', serif; font-style: italic;
+  font-size: clamp(32px, 5vw, 50px); line-height: 1; color: var(--ink);
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
+}
+.statbar .stat .num .count.live.bumping { color: var(--glow); }
+.statbar .stat .lbl { display: block; margin-top: 12px; color: var(--mute); }
+.statbar .live-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--glow); box-shadow: 0 0 8px var(--glow);
+  margin-left: 8px; vertical-align: middle; position: relative; top: -6px;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+@media (max-width: 720px) {
+  .statbar { grid-template-columns: 1fr 1fr; }
+  .statbar .stat:nth-child(odd) { border-left: none; }
+  .statbar .stat:nth-child(even) { border-left: 1px solid var(--line); }
+  .statbar .stat:nth-child(3), .statbar .stat:nth-child(4) { border-top: 1px solid var(--line); }
+}
+
+/* game tiles — two big portrait cards using real cover art */
+.game-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 44px;
+  max-width: 1040px; margin: 72px auto 0;
+}
+@media (max-width: 760px) { .game-grid { grid-template-columns: 1fr; gap: 40px; max-width: 460px; } }
+.game-card { display: block; text-decoration: none; color: inherit; cursor: pointer; }
+.game-card .frame {
+  position: relative; aspect-ratio: 3 / 4;
+  border: 1px solid var(--line); background: var(--bg-2); overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.2,.7,.2,1), border-color 0.3s;
+}
+.game-card:hover .frame { transform: translateY(-6px); border-color: var(--line-strong); }
+.game-card .frame-art.photo img { object-position: center top; image-rendering: auto; }
+.game-card .frame-art.photo img { transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+.game-card:hover .frame-art.photo img { transform: scale(1.04); }
+.game-card .frame-art .badge { letter-spacing: 0.06em; }
+.game-card .meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 18px; gap: 18px; }
+.game-card h3 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; margin: 0; letter-spacing: -0.01em; }
+.game-card h3 .sub { font-style: italic; color: var(--ink-2); display: block; font-size: 21px; margin-top: 2px; }
+.game-card .tags { color: var(--mute); white-space: nowrap; }
+.game-card .tags .count { font-variant-numeric: tabular-nums; }
+
+/* the cat keeps its hero moment, now inside the studio section */
+.studio-cat { max-width: 580px; margin: 0 auto 72px; }
+
+/* inline links inside page subheads (e.g. cross-link to the Stanley page) */
+.page-sub a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.page-sub a:hover { color: var(--ink-2); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition: none !important; }
 }

@@ -2,8 +2,8 @@
 <html lang="en" data-palette="ember">
 <head>
 <meta charset="utf-8" />
-<title>Toaster Studios / Crazy things in Minecraft that unbrain your brain.</title>
-<meta name="description" content="A very small Minecraft mod studio. Weird, slightly cursed Fabric mods, oddly specific YouTuber recreations, and the occasional regrettable mob. Run by one modder and one very serious cat." />
+<title>Toaster Studios / Weird mods for Minecraft and The Stanley Parable</title>
+<meta name="description" content="A very small mod studio. Weird, slightly cursed mods for Minecraft (Fabric) and now The Stanley Parable — oddly specific YouTuber recreations and the occasional regrettable mob. Run by one modder and one very serious cat." />
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <!-- Google AdSense -->
@@ -26,65 +26,73 @@
 </head>
 <body data-page="home">
 
-<!-- SVG filter: pixelate effect for the WIP project tile -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <filter id="pixelate" x="0" y="0">
-      <feFlood x="6" y="6" height="2" width="2"/>
-      <feComposite width="14" height="14"/>
-      <feTile result="a"/>
-      <feComposite in="SourceGraphic" in2="a" operator="in"/>
-      <feMorphology operator="dilate" radius="7"/>
-    </filter>
-  </defs>
-</svg>
-
-<!-- ============== HERO ============== -->
-<header class="hero" id="top">
+<!-- ============== GAME PICKER (choose your game) ============== -->
+<header class="picker" id="games">
   <div class="wrap">
 
     <div class="hero-meta mono">
-      <div class="left">Joined Modrinth · 3 months ago · 2 mods live</div>
+      <div class="left">Joined Modrinth · <span class="js-joined">a few months ago</span> · <span class="count js-modcount" data-count-to="2">2</span> mods live</div>
       <div class="center">a very small mod studio</div>
-      <div class="right">Index № 001 / Jenga Era</div>
+      <div class="right">Index № 002 / Two-game era</div>
     </div>
 
-    <h1 class="display" data-reveal>
-      Crazy things in Minecraft <em>that</em><br>
-      unbrain your <span style="white-space: nowrap"><span class="slot" id="slot" aria-live="polite"><span class="slot-track" id="slot-track"><span class="slot-word gold">brain.</span><span class="slot-word gold">noggin.</span><span class="slot-word gold">skull.</span><span class="slot-word gold">cortex.</span><span class="slot-word gold">cranium.</span><span class="slot-word gold">head.</span><span class="slot-word gold">mind.</span></span></span></span>
-    </h1>
+    <h1 class="display" data-reveal>Two games. <em>Pick your poison.</em></h1>
 
-    <div class="hero-row">
-      <div data-reveal>
-        <p class="lede">
-          We make weird, slightly cursed Minecraft mods.
-          Physics jokes, oddly specific YouTuber recreations, the
-          occasional <em>regrettable mob.</em> If you saw a mod in a video
-          and nobody ever shipped it, we'll have a crack at it.
-          Our creative director sleeps 16 hours a day, so we get a lot done in the other eight.
-        </p>
-        <div class="compat mono">
-          <span>Fabric</span><span class="dot-sep">·</span><span>Client + Server</span><span class="dot-sep">·</span><span>Cursed · Game Mechanics · Minigame</span>
-        </div>
-        <div class="cta-row">
-          <a class="btn primary" href="/mods/">See the mods <span class="arrow">→</span></a>
-          <a class="btn ghost" href="/contact/">Request a recreation</a>
-        </div>
-      </div>
+    <p class="pick-sub" data-reveal>
+      We make weird, slightly cursed mods — for <em>Minecraft</em>, and now
+      <em>The Stanley Parable.</em> Crazy things that unbrain your brain.
+      Pick a game; we'll ruin it responsibly.
+    </p>
 
-      <div class="toaster-stage" id="stage" data-reveal>
-        <div class="crumbs" id="crumbs" aria-hidden="true"></div>
-        <img class="photo" src="/assets/img/toaster.png" alt="Toaster, the studio's chonky founder, glowing eyes and all" />
-        <div class="eyeglow" id="eyeglow"></div>
-        <div class="floaty-tag">
-          <span class="bubble">"Hire me, or else."</span>
-          <span class="mono who">Toaster, lead creature designer</span>
-        </div>
-        <div class="nameplate mono">
-          <span class="tick"></span>
-          <span>Fig. 01 / the founder</span>
-        </div>
+    <!-- stat bar (CurseForge-style, but with our real, live numbers) -->
+    <div class="statbar" data-reveal aria-label="Studio at a glance">
+      <div class="stat">
+        <span class="num"><span class="count" data-count-to="2">0</span></span>
+        <span class="lbl mono">Games</span>
       </div>
+      <div class="stat">
+        <span class="num"><span class="count js-modcount" data-count-to="2">0</span></span>
+        <span class="lbl mono">Mods live</span>
+      </div>
+      <div class="stat">
+        <span class="num"><span class="count live js-dl-total" id="downloadsCount" data-count-to="123">0</span><span class="live-dot" aria-hidden="true"></span></span>
+        <span class="lbl mono">Downloads</span>
+      </div>
+      <div class="stat">
+        <span class="num"><span class="count" data-count-to="1">0</span></span>
+        <span class="lbl mono">Cats on staff</span>
+      </div>
+    </div>
+
+    <!-- the two games -->
+    <div class="game-grid">
+
+      <a class="game-card" href="/mods/" data-reveal>
+        <div class="frame">
+          <div class="frame-art photo">
+            <img src="/assets/img/minecraft-cover.jpg" alt="Minecraft" />
+            <span class="badge mono">MINECRAFT</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Minecraft <span class="sub">Fabric mods</span></h3>
+          <span class="mono tags"><span class="count js-modcount" data-count-to="2">0</span> mods · <span class="count live js-dl-total" data-count-to="123">0</span> downloads</span>
+        </div>
+      </a>
+
+      <a class="game-card" href="/mods/stanley-parable/" data-reveal>
+        <div class="frame">
+          <div class="frame-art photo">
+            <img src="/assets/img/stanley-cover.png" alt="The Stanley Parable: Ultra Deluxe" onerror="this.onerror=null;this.src='/assets/img/stanley55-menu.png';this.style.objectPosition='center';" />
+            <span class="badge mono">THE STANLEY PARABLE</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>The Stanley Parable <span class="sub">in the oven</span></h3>
+          <span class="mono tags">1 toasting · no ETA</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </header>
@@ -95,130 +103,36 @@
       <span>Cursed game mechanics</span><span class="star"></span>
       <span><em>YouTuber mod recreations</em></span><span class="star"></span>
       <span>Physics jokes</span><span class="star"></span>
-      <span><em>Minigames</em></span><span class="star"></span>
+      <span><em>The game that started as a mod</em></span><span class="star"></span>
       <span>Unbrained brains</span><span class="star"></span>
-      <span><em>Block towers that topple</em></span><span class="star"></span>
+      <span><em>Two doors, one cat</em></span><span class="star"></span>
       <span>Tiny fabric mods</span><span class="star"></span>
-      <span><em>Cat-supervised QA</em></span><span class="star"></span>
+      <span><em>An unreliable narrator</em></span><span class="star"></span>
+      <span>Cat-supervised QA</span><span class="star"></span>
   </div>
 </div>
-
-<!-- ============== WORK ============== -->
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="mono index">§ 02 / The slate</div>
-      <h2 class="sec-title">Two shipped. <em>A few more in the oven.</em></h2>
-    </div>
-
-    <div class="work-grid">
-
-      <a class="work featured" href="/mods/jengamod/" data-reveal>
-        <div class="frame">
-          <div class="frame-art jenga photo">
-            <img src="/assets/img/jenga-shot.png" alt="Jenga Mod in-game screenshot" />
-            <span class="badge mono">SHIPPED</span>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>Jenga Mod <span class="sub">that one systemzee video, but real</span></h3>
-          <span class="mono tags">Cursed · Fabric · <span class="count live" id="jengaDownloads" data-count-to="71">0</span> downloads</span>
-        </div>
-      </a>
-
-      <a class="work" href="/contact/" data-reveal>
-        <div class="frame">
-          <div class="frame-art queue">
-            <div class="queue-grid" aria-hidden="true">
-              <div class="q-card q-a"><span class="mono">RECREATION REQUEST</span></div>
-              <div class="q-card q-b"><span class="mono">RECREATION REQUEST</span></div>
-              <div class="q-card q-c"><span class="mono">RECREATION REQUEST</span></div>
-            </div>
-            <span class="badge mono outline">QUEUE</span>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>YouTuber Mod Recreations <span class="sub">if nobody shipped it, we will</span></h3>
-          <span class="mono tags">Open queue · Send the video</span>
-        </div>
-      </a>
-
-      <a class="work" href="/mods/offgridblocks/" data-reveal>
-        <div class="frame">
-          <div class="frame-art offgrid photo">
-            <img src="/assets/img/offgrid-shot.png" alt="Off da grid blocks in-game screenshot" />
-            <span class="badge mono">NEW · v1.21.1</span>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>Off da grid blocks <span class="sub">a wand that places blocks at any angle</span></h3>
-          <span class="mono tags">Cursed · Fabric · <span class="count live" id="offgridDownloads" data-count-to="16">0</span> downloads</span>
-        </div>
-      </a>
-
-      <a class="work" href="/contact/" data-reveal>
-        <div class="frame">
-          <div class="frame-art wip">
-            <div class="mc-scene" aria-hidden="true">
-              <div class="mc-sky"></div>
-              <div class="mc-sun"></div>
-              <div class="mc-cloud c1"></div>
-              <div class="mc-cloud c2"></div>
-              <div class="mc-mountain m1"></div>
-              <div class="mc-mountain m2"></div>
-              <div class="mc-mountain m3"></div>
-              <div class="mc-bird b1"></div>
-              <div class="mc-bird b2"></div>
-              <div class="mc-tree">
-                <div class="mc-leaves"></div>
-                <div class="mc-trunk"></div>
-              </div>
-              <div class="mc-flower f1"></div>
-              <div class="mc-flower f2"></div>
-              <div class="mc-flower f3"></div>
-              <div class="mc-terrain">
-                <div class="mc-row mc-grass"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="mc-row mc-dirt d1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="mc-row mc-dirt d2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="mc-row mc-stone"><span class="ore-diamond"></span><span></span><span class="ore-gold"></span><span></span><span></span><span class="ore-redstone"></span><span></span><span class="ore-emerald"></span><span></span><span class="ore-lapis"></span></div>
-              </div>
-            </div>
-            <div class="wip-stamp serif italic">Project №&thinsp;003</div>
-            <span class="badge mono outline">IN&nbsp;DEV</span>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>Untitled Cursed Thing <span class="sub">currently unbraining a brain</span></h3>
-          <span class="mono tags">Fabric · TBA</span>
-        </div>
-      </a>
-
-      <div class="work repos-card" data-reveal>
-        <div class="frame">
-          <div class="frame-art repos">
-            <div class="repo-list">
-              <a class="repo" href="https://github.com/ToasterStudiosMods/Jenga-Mod" target="_blank" rel="noopener"><span class="dot"></span><span class="name">Jenga-Mod</span><span class="meta-tag mono">Public</span></a>
-              <a class="repo" href="https://github.com/ToasterStudiosMods/Off-da-grid-blocks" target="_blank" rel="noopener"><span class="dot"></span><span class="name">Off-da-grid-blocks</span><span class="meta-tag mono">Public</span></a>
-            </div>
-            <span class="badge mono outline">SOURCE</span>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>On GitHub <span class="sub">both mods, open source</span></h3>
-          <a class="mono tags" href="https://github.com/ToasterStudiosMods" target="_blank" rel="noopener">@ToasterStudiosMods</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ============== STUDIO ============== -->
 <section id="studio">
   <div class="wrap">
     <div class="sec-head">
-      <div class="mono index">§ 03 / The studio</div>
+      <div class="mono index">§ 02 / The studio</div>
       <h2 class="sec-title">One modder, <em>one very serious cat.</em></h2>
+    </div>
+
+    <!-- the founder, glowing (moved down from the old hero) -->
+    <div class="studio-cat toaster-stage" id="stage" data-reveal>
+      <div class="crumbs" id="crumbs" aria-hidden="true"></div>
+      <img class="photo" src="/assets/img/toaster.png" alt="Toaster, the studio's chonky founder, glowing eyes and all" />
+      <div class="eyeglow" id="eyeglow"></div>
+      <div class="floaty-tag">
+        <span class="bubble">"Hire me, or else."</span>
+        <span class="mono who">Toaster, lead creature designer</span>
+      </div>
+      <div class="nameplate mono">
+        <span class="tick"></span>
+        <span>Fig. 01 / the founder</span>
+      </div>
     </div>
 
     <div class="about-grid">
@@ -228,19 +142,19 @@
           We started a few months ago and we ship slow on purpose.
         </p>
         <p>
-          The brief is short: <em>crazy things in Minecraft that unbrain
-          your brain.</em> Physics jokes, tiny mechanics, the occasional
-          regrettable mob — and if a YouTuber showed off a mod and never
-          released it, we'll have a go at recreating it.
+          The brief is short: <em>crazy things that unbrain your brain.</em>
+          Physics jokes, tiny mechanics, the occasional regrettable mob — and if
+          a YouTuber showed off a mod and never released it, we'll have a go at
+          recreating it. Mostly in Minecraft. Now also in <em>The Stanley Parable.</em>
         </p>
         <p>
-          One mod is live so far. A few more are toasting. The cat
+          Two mods are live so far. A Stanley Parable thing is toasting. The cat
           supervises.
         </p>
         <dl class="studio-stats mono">
-          <div><dt>Joined Modrinth</dt><dd>3 mo ago</dd></div>
-          <div><dt>Mods live</dt><dd><span class="count" data-count-to="2">0</span></dd></div>
-          <div><dt>Total downloads</dt><dd><span class="count live" id="downloadsCount" data-count-to="87">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+          <div><dt>Joined Modrinth</dt><dd><span class="js-joined">a few mo ago</span></dd></div>
+          <div><dt>Mods live</dt><dd><span class="count js-modcount" data-count-to="2">0</span></dd></div>
+          <div><dt>Total downloads</dt><dd><span class="count live js-dl-total" data-count-to="123">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
         </dl>
         <div class="cta-row">
           <a class="btn ghost" href="/studio/">More about the studio <span class="arrow">→</span></a>
@@ -271,7 +185,7 @@
 <section id="services">
   <div class="wrap">
     <div class="sec-head">
-      <div class="mono index">§ 04 / What we make</div>
+      <div class="mono index">§ 03 / What we make</div>
       <h2 class="sec-title">A short list, <em>weird on purpose.</em></h2>
     </div>
 
@@ -279,7 +193,7 @@
       <div class="service">
         <div class="mono num">01</div>
         <h3>Cursed <em>mechanics</em></h3>
-        <p>One small, slightly broken-feeling idea, tuned until it's funny. Fabric, client + server.</p>
+        <p>One small, slightly broken-feeling idea, tuned until it's funny. Fabric for Minecraft, client + server.</p>
         <div class="star"></div>
       </div>
       <div class="service">
@@ -290,8 +204,8 @@
       </div>
       <div class="service">
         <div class="mono num">03</div>
-        <h3>Physics &amp; <em>minigames</em></h3>
-        <p>Towers that fall, blocks that don't behave, party-style chaos. Stuff a server can actually play together.</p>
+        <h3>Narrative <em>mischief</em></h3>
+        <p>The Stanley Parable started life as a mod. We're modding it back — new endings, new doors, a narrator who'd rather we didn't.</p>
         <div class="star"></div>
       </div>
       <div class="service">
@@ -314,7 +228,7 @@
 <section id="process">
   <div class="wrap">
     <div class="sec-head">
-      <div class="mono index">§ 05 / How we work</div>
+      <div class="mono index">§ 04 / How we work</div>
       <h2 class="sec-title">Proof. Mix. Toast. <em>Plate.</em></h2>
     </div>
 
@@ -348,8 +262,8 @@
           <svg viewBox="0 0 56 56" width="56" height="56"><path d="M8 40 Q28 20 48 40" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="30" r="3" fill="currentColor"/></svg>
         </div>
         <div class="mono step-num">04 / Plate</div>
-        <h4>Up on Modrinth.</h4>
-        <p>Release notes, GitHub issues open, replies in the comments. If it breaks, we patch it. That's the deal.</p>
+        <h4>Out the door.</h4>
+        <p>Minecraft mods go up on Modrinth; the rest go wherever that game keeps its mods. GitHub issues open, replies in the comments. If it breaks, we patch it.</p>
       </div>
     </div>
   </div>
@@ -358,7 +272,7 @@
 <!-- ============== CONTACT ============== -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="mono" style="color: var(--mute)">§ 06 / Get in touch</div>
+    <div class="mono" style="color: var(--mute)">§ 05 / Get in touch</div>
     <p class="big">
       Saw a mod in a video?<br>
       <a href="mailto:toasterstudiosmods+requests@gmail.com?subject=Mod%20recreation%20request&body=Drop%20the%20YouTube%20link%20(or%20a%20description)%20below%3A%0A%0A">Click <em>to request.</em></a>
