@@ -338,6 +338,8 @@
 
   /* ---------- Tawk.to live chat (site-wide) ---------- */
   function loadTawk() {
+    // Allow disabling the chat widget for screenshots / automated testing.
+    if (/[?&]nochat\b/.test(location.search)) return;
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
     var s1 = document.createElement('script');
