@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-palette="ember">
+<head>
+<meta charset="utf-8" />
+<title>The Steve Parable / Toaster Studios</title>
+<meta name="description" content="The Steve Parable — a narrator watches everything you do in Minecraft and won't stop talking about it. Offline neural voice, 550+ lines, a Stanley Parable-style title screen. Fabric, Minecraft 1.21.1." />
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9911131262467249" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var m = localStorage.getItem('ts-mode');
+      d.setAttribute('data-palette', m === 'light' ? 'toast' : 'ember');
+    } catch (e) { d.setAttribute('data-palette', 'ember'); }
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260624c" />
+</head>
+<body data-page="mods">
+
+<!-- ============== PAGE HERO ============== -->
+<header class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb mono">
+      <a href="/">Home</a><span class="sep">/</span><a href="/mods/">Mods</a><span class="sep">/</span><span class="here">The Steve Parable</span>
+    </div>
+    <h1 class="page-title">The Steve <span class="gold">Parable.</span></h1>
+    <p class="page-sub">
+      A narrator watches everything you do. Punch a tree, mine your first
+      diamond, die in a hole you dug yourself — and a voice is right there,
+      <em>by name</em>, narrating it with the patience of someone who has
+      watched this exact mistake before. Runs offline. Won't shut up.
+    </p>
+  </div>
+</header>
+
+<!-- ============== DETAIL ============== -->
+<section class="mod-detail">
+  <div class="wrap">
+    <div class="mod-layout">
+
+      <div class="mod-shot" data-reveal>
+        <img src="/assets/img/steve-shot.png" alt="The Steve Parable title screen — a Stanley Parable-style office menu" onerror="this.onerror=null;this.src='/assets/img/stanley55-menu.png';this.style.objectPosition='center';" />
+        <span class="badge mono">NEW · v1.21.1</span>
+      </div>
+
+      <aside class="mod-aside" data-reveal>
+        <dl class="spec">
+          <div class="row"><dt class="mono">Platform</dt><dd>Fabric</dd></div>
+          <div class="row"><dt class="mono">Minecraft</dt><dd>1.21.1</dd></div>
+          <div class="row"><dt class="mono">Voice</dt><dd>Alan / Kokoro</dd></div>
+          <div class="row"><dt class="mono">Lines</dt><dd>550+</dd></div>
+          <div class="row"><dt class="mono">Downloads</dt><dd><span class="count live" id="steveDownloads" data-count-to="0">0</span><span class="live-dot" aria-hidden="true"></span></dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn primary" href="https://modrinth.com/mod/the-steve-parable" target="_blank" rel="noopener">Get it on Modrinth <span class="arrow">→</span></a>
+          <a class="btn ghost" href="https://github.com/ToasterStudiosMods/steve-parable" target="_blank" rel="noopener">View source</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <div class="mod-body">
+      <div class="prose">
+        <h2>What it is.</h2>
+        <p>
+          The Stanley Parable, but the office is a survival world and Stanley is
+          you. A narrator watches the whole run and reacts to what you actually
+          do — first tree punched, first ore mined, first thing crafted, the mob
+          you killed, the death you earned, the long stretch where you stood
+          still and did nothing at all. It uses your <em>actual</em> Minecraft
+          username, so the commentary lands a little too personally.
+        </p>
+
+        <h3>It runs offline.</h3>
+        <p>
+          The voice is real neural text-to-speech synthesized <em>on your
+          machine</em> with sherpa-onnx — no API keys, no per-line bill, no
+          server to phone home to. Download the model once and it works on a
+          plane. Lines are cached as audio so you're not re-synthesizing the
+          same quip every time you punch a tree.
+        </p>
+
+        <h3>Two voices.</h3>
+        <p>
+          Pick <em>Alan</em> (Piper) when you want fast and reactive, or
+          <em>Kokoro</em> when you want it to sound nicer and don't mind a beat
+          of delay. Captions ride along the bottom of the screen in sync with
+          the audio, so you catch every line even with the volume down.
+        </p>
+
+        <h3>The cursed bits.</h3>
+        <ul class="controls mono">
+          <li><span class="keys">550+</span> unique narrator lines across mining, crafting, death, mobs, biomes, dimensions and idling</li>
+          <li><span class="keys">Title</span> a Stanley Parable-style menu, office and all, plus an intro cutscene on new worlds</li>
+          <li><span class="keys">Permadeath</span> optional mode that auto-deletes the world when you die. The narrator approves.</li>
+        </ul>
+
+        <h3>Controls.</h3>
+        <ul class="controls mono">
+          <li><span class="keys"><kbd>N</kbd></span> Open voice &amp; narrator settings</li>
+          <li><span class="keys"><kbd>Esc</kbd></span> Same settings, from the pause menu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RELATED ============== -->
+<section class="related">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono index">§ Next</div>
+      <h2 class="sec-title">While you're here.</h2>
+    </div>
+    <div class="related-grid">
+      <a class="work" href="/mods/offgridblocks/" data-reveal>
+        <div class="frame">
+          <div class="frame-art offgrid photo">
+            <img src="/assets/img/offgrid-shot.png" alt="Off da grid blocks in-game screenshot" />
+            <span class="badge mono">NEW · v1.21.1</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Off da grid blocks <span class="sub">a wand that places blocks at any angle</span></h3>
+          <span class="mono tags">Cursed · Fabric</span>
+        </div>
+      </a>
+      <a class="work" href="/mods/jengamod/" data-reveal>
+        <div class="frame">
+          <div class="frame-art jenga photo">
+            <img src="/assets/img/jenga-shot.png" alt="Jenga Mod in-game screenshot" />
+            <span class="badge mono">SHIPPED</span>
+          </div>
+        </div>
+        <div class="meta">
+          <h3>Jenga Mod <span class="sub">that one systemzee video, but real</span></h3>
+          <span class="mono tags">Cursed · Fabric</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/js/site.js?v=20260624c"></script>
+</body>
+</html>

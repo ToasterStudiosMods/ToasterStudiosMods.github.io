@@ -289,9 +289,10 @@
     var modCountEls = document.querySelectorAll('.js-modcount');
     var jengaDlEl = document.getElementById('jengaDownloads');
     var offgridDlEl = document.getElementById('offgridDownloads');
-    if (!totalEls.length && !modCountEls.length && !jengaDlEl && !offgridDlEl) return;
+    var steveDlEl = document.getElementById('steveDownloads');
+    if (!totalEls.length && !modCountEls.length && !jengaDlEl && !offgridDlEl && !steveDlEl) return;
 
-    var last = { total: null, jenga: null, offgrid: null, mods: null };
+    var last = { total: null, jenga: null, offgrid: null, steve: null, mods: null };
 
     function bumpOne(el, value, changed) {
       el.dataset.countTo = String(value);       // becomes the count-up target
@@ -325,6 +326,8 @@
           if (jenga && jengaDlEl) bump(jengaDlEl, jenga.downloads || 0, 'jenga');
           var offgrid = projects.find(function (p) { return /off.?da.?grid|grid.?blocks/i.test(p.slug || p.title || ''); });
           if (offgrid && offgridDlEl) bump(offgridDlEl, offgrid.downloads || 0, 'offgrid');
+          var steve = projects.find(function (p) { return /steve.?parable/i.test(p.slug || p.title || ''); });
+          if (steve && steveDlEl) bump(steveDlEl, steve.downloads || 0, 'steve');
         })
         .catch(function () { /* silent — markup numbers stand */ });
     }
